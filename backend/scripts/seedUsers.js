@@ -1,0 +1,69 @@
+const mongoose = require('mongoose');
+const User = require('../models/User');
+const connectDB = require('../db');
+
+const seedUsers = async () => {
+  await connectDB();
+
+  const users = [
+    { name: 'Bikene annie chantal', numero_compteur: '02589632147', adress: 'Quartier Louis, Libreville', contact: '077539418' },
+    { name: 'Kouadio Jean', numero_compteur: '02589632148', adress: 'Batterie IV, Libreville', contact: '077539419' },
+    { name: 'Traoré Awa', numero_compteur: '02589632149', adress: 'Akébé, Libreville', contact: '077539420' },
+    { name: 'Konan Serge', numero_compteur: '02589632150', adress: 'Montagne Sainte, Libreville', contact: '077539421' },
+    { name: 'Yao Mireille', numero_compteur: '02589632151', adress: 'Nzeng-Ayong, Libreville', contact: '077539422' },
+    { name: 'Koffi Paul', numero_compteur: '02589632152', adress: 'Charbonnages, Libreville', contact: '077539423' },
+    { name: 'Ouattara Mariam', numero_compteur: '02589632153', adress: 'Belle-Vue, Libreville', contact: '077539424' },
+    { name: 'Fofana Issa', numero_compteur: '02589632154', adress: 'Glass, Libreville', contact: '077539425' },
+    { name: 'Coulibaly Fatou', numero_compteur: '02589632155', adress: 'Lalala, Libreville', contact: '077539426' },
+    { name: 'Soro Ibrahim', numero_compteur: '02589632156', adress: 'Sotega, Libreville', contact: '077539427' },
+    { name: 'Bamba Adama', numero_compteur: '02589632157', adress: 'Cité Damas, Libreville', contact: '077539428' },
+    { name: 'Cissé Aminata', numero_compteur: '02589632158', adress: 'PK5, Libreville', contact: '077539429' },
+    { name: 'Diomandé Moussa', numero_compteur: '02589632159', adress: 'PK8, Libreville', contact: '077539430' },
+    { name: 'Kouakou Brigitte', numero_compteur: '02589632160', adress: 'Avorbam, Libreville', contact: '077539431' },
+    { name: 'Kouassi Hervé', numero_compteur: '02589632161', adress: 'Mindoubé, Libreville', contact: '077539432' },
+    { name: 'Zoungrana Salif', numero_compteur: '02589632162', adress: 'Alibandeng, Libreville', contact: '077539433' },
+    { name: 'Sanogo Mariam', numero_compteur: '02589632163', adress: 'Cité de la Caisse, Libreville', contact: '077539434' },
+    { name: 'Kra Yao', numero_compteur: '02589632164', adress: 'Camp de Gaulle, Libreville', contact: '077539435' },
+    { name: 'Kouamé Luc', numero_compteur: '02589632165', adress: 'Bas de Gué-Gué, Libreville', contact: '077539436' },
+    { name: 'Kouadio Alice', numero_compteur: '02589632166', adress: 'Sable, Libreville', contact: '077539437' },
+    { name: 'Kouassi Serge', numero_compteur: '02589632167', adress: 'Cité des Ailes, Libreville', contact: '077539438' },
+    { name: 'Koffi Ange', numero_compteur: '02589632168', adress: 'PK12, Libreville', contact: '077539439' },
+    { name: 'Yao Eric', numero_compteur: '02589632169', adress: 'Nzeng-Ayong, Libreville', contact: '077539440' },
+    { name: 'Koné Mariam', numero_compteur: '02589632170', adress: 'Belle-Vue II, Libreville', contact: '077539441' },
+    { name: 'Ouattara Karim', numero_compteur: '02589632171', adress: 'Cité Mébiame, Libreville', contact: '077539442' },
+    { name: 'Fofana Aïcha', numero_compteur: '02589632172', adress: 'PK6, Libreville', contact: '077539443' },
+    { name: 'Coulibaly Yacouba', numero_compteur: '02589632173', adress: 'Cité des Cheminots, Libreville', contact: '077539444' },
+    { name: 'Soro Mariam', numero_compteur: '02589632174', adress: 'Cité des Fonctionnaires, Libreville', contact: '077539445' },
+    { name: 'Bamba Fatou', numero_compteur: '02589632175', adress: 'Cité des Mines, Libreville', contact: '077539446' },
+    { name: 'Cissé Adama', numero_compteur: '02589632176', adress: 'Cité SNI, Libreville', contact: '077539447' },
+    { name: 'Diomandé Awa', numero_compteur: '02589632177', adress: 'Cité SOGARA, Libreville', contact: '077539448' },
+    { name: 'Kouakou Serge', numero_compteur: '02589632178', adress: 'Cité SOGARA II, Libreville', contact: '077539449' },
+    { name: 'Kouassi Brigitte', numero_compteur: '02589632179', adress: 'Cité SOGARA III, Libreville', contact: '077539450' },
+    { name: 'Zoungrana Aminata', numero_compteur: '02589632180', adress: 'Cité SOGARA IV, Libreville', contact: '077539451' },
+    { name: 'Sanogo Moussa', numero_compteur: '02589632181', adress: 'Cité SOGARA V, Libreville', contact: '077539452' },
+    { name: 'Kra Brigitte', numero_compteur: '02589632182', adress: 'Cité SOGARA VI, Libreville', contact: '077539453' },
+    { name: 'Kouamé Hervé', numero_compteur: '02589632183', adress: 'Cité SOGARA VII, Libreville', contact: '077539454' },
+    { name: 'Kouadio Salif', numero_compteur: '02589632184', adress: 'Cité SOGARA VIII, Libreville', contact: '077539455' },
+    { name: 'Kouassi Mariam', numero_compteur: '02589632185', adress: 'Cité SOGARA IX, Libreville', contact: '077539456' },
+    { name: 'Koffi Yao', numero_compteur: '02589632186', adress: 'Cité SOGARA X, Libreville', contact: '077539457' },
+    { name: 'Yao Luc', numero_compteur: '02589632187', adress: 'Cité SOGARA XI, Libreville', contact: '077539458' },
+    { name: 'Koné Alice', numero_compteur: '02589632188', adress: 'Cité SOGARA XII, Libreville', contact: '077539459' },
+    { name: 'Ouattara Serge', numero_compteur: '02589632189', adress: 'Cité SOGARA XIII, Libreville', contact: '077539460' },
+    { name: 'Fofana Ange', numero_compteur: '02589632190', adress: 'Cité SOGARA XIV, Libreville', contact: '077539461' },
+    { name: 'Coulibaly Eric', numero_compteur: '02589632191', adress: 'Cité SOGARA XV, Libreville', contact: '077539462' },
+    { name: 'Soro Karim', numero_compteur: '02589632192', adress: 'Cité SOGARA XVI, Libreville', contact: '077539463' },
+    { name: 'Bamba Aïcha', numero_compteur: '02589632193', adress: 'Cité SOGARA XVII, Libreville', contact: '077539464' },
+    { name: 'Cissé Yacouba', numero_compteur: '02589632194', adress: 'Cité SOGARA XVIII, Libreville', contact: '077539465' },
+  ];
+
+  try {
+    await User.insertMany(users);
+    console.log('Users seeded successfully');
+    process.exit(0);
+  } catch (error) {
+    console.error('Error seeding users:', error);
+    process.exit(1);
+  }
+};
+
+seedUsers();

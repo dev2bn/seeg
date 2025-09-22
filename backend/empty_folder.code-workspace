@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../seeg-dashboard/src/pages/empty_folder"
+		},
+		{
+			"path": "../seeg-dashboard"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
